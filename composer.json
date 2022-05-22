@@ -1,0 +1,19 @@
+{
+    "name": "kenan/query-builder",
+    "description": "Welcome to querry builder",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kenan Mursalov",
+            "email": "kenan.mursalov@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mursalov\\QueryBuilder\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
