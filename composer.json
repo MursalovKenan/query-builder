@@ -1,5 +1,5 @@
 {
-    "name": "kenan/query-builder",
+    "name": "mursalov/query-builder",
     "description": "Welcome to querry builder",
     "type": "library",
     "license": "MIT",
@@ -16,6 +16,8 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "aigletter/contracts": "dev-master"
+        "php": "^8.1",
+        "aigletter/contracts": "^1.0.2",
+        "ext-pdo": "*"
     }
 }

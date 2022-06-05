@@ -13,41 +13,41 @@ class QueryBuilder implements QueryBuilderInterface
     private string $table;
     private int $limit;
     private int $offset;
-    private int $order;
+    private array|string $order;
 
 
 
-    public function select($columns): \Aigletter\Contracts\Builder\BuilderInterface
+    public function select($columns): BuilderInterface
     {
         $this->columns = $columns;
         return $this;
     }
 
-    public function where($conditions): \Aigletter\Contracts\Builder\BuilderInterface
+    public function where($conditions): BuilderInterface
     {
         $this->conditions = $conditions;
         return $this;
     }
 
-    public function table($table): \Aigletter\Contracts\Builder\BuilderInterface
+    public function table($table): BuilderInterface
     {
         $this->table = $table;
         return $this;
     }
 
-    public function limit($limit): \Aigletter\Contracts\Builder\BuilderInterface
+    public function limit($limit): BuilderInterface
     {
         $this->limit = $limit;
         return $this;
     }
 
-    public function offset($offset): \Aigletter\Contracts\Builder\BuilderInterface
+    public function offset($offset): BuilderInterface
     {
         $this->offset = $offset;
         return $this;
     }
 
-    public function order($order): \Aigletter\Contracts\Builder\BuilderInterface
+    public function order($order): BuilderInterface
     {
         $this->order = $order;
         return $this;
