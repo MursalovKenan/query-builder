@@ -21,11 +21,18 @@ class DB implements DbInterface
 
     public function one(QueryInterface $query): object
     {
-        return $this->pdo->query($query)->fetch(PDO::FETCH_OBJ);
-    }
+        $data = $this->pdo->query($query)->fetch(PDO::FETCH_OBJ);
+        if ($data) {
+            return $data;
+        }
+        return [];    }
 
     public function all(QueryInterface $query): array
     {
-        return $this->pdo->query($query)->fetch(PDO::FETCH_ASSOC);
+        $data = $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        if ($data) {
+            return $data;
+        }
+        return [];
     }
 }

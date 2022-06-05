@@ -5,6 +5,7 @@ namespace Mursalov\QueryBuilder;
 use Aigletter\Contracts\Builder\BuilderInterface;
 use Aigletter\Contracts\Builder\QueryBuilderInterface;
 use Aigletter\Contracts\Builder\QueryInterface;
+use http\Exception\InvalidArgumentException;
 
 class QueryBuilder implements QueryBuilderInterface
 {
@@ -15,7 +16,11 @@ class QueryBuilder implements QueryBuilderInterface
     private int $offset;
     private array|string $order;
 
-
+    public function __construct()
+    {
+        $this->limit = 0;
+        $this->offset = 0;
+    }
 
     public function select($columns): BuilderInterface
     {
@@ -37,12 +42,18 @@ class QueryBuilder implements QueryBuilderInterface
 
     public function limit($limit): BuilderInterface
     {
+        if ($limit < 0) {
+            throw (new InvalidArgumentException('Limit must be more then 0'));
+        }
         $this->limit = $limit;
         return $this;
     }
 
     public function offset($offset): BuilderInterface
     {
+        if ($offset < 0) {
+            throw (new InvalidArgumentException('Offset must be more then 0'));
+        }
         $this->offset = $offset;
         return $this;
     }
